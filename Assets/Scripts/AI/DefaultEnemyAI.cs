@@ -12,8 +12,8 @@ public class DefaultEnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        detector = GetComponent<AIDetector>();
-        tank = GetComponent<TankController>();
+        detector = GetComponentInChildren<AIDetector>();
+        tank = GetComponentInChildren<TankController>();
     }
 
     private void Update()
