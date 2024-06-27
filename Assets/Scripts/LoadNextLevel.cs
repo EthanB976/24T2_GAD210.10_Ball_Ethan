@@ -9,7 +9,7 @@ public class LoadNextLevel : MonoBehaviour
     {
         
         
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
         Debug.Log("sceneload");
         
         
