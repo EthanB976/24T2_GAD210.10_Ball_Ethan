@@ -13,6 +13,7 @@ public class TankMover : MonoBehaviour
 
     public float currentSpeed = 0;
     public float currentForewardDirection = 1;
+    public float currentBackwardDirection = -1;
 
 
     private void Awake()
@@ -32,6 +33,7 @@ public class TankMover : MonoBehaviour
         {
             currentForewardDirection = 0;
         }
+        
     }
 
     private void CalculateSpeed(Vector2 movementVector)
@@ -51,6 +53,15 @@ public class TankMover : MonoBehaviour
     {
         rb2d.velocity = (Vector2)transform.up * currentSpeed * currentForewardDirection * Time.fixedDeltaTime;
         rb2d.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -movementVector.x * movementData.rotationSpeed * Time.fixedDeltaTime));
+        MoveBackwards();
+    }
+
+    private void MoveBackwards()
+    {
+        if (Input.GetKey(KeyCode.S) && gameObject.CompareTag("Bob"))
+        {
+            rb2d.velocity = (Vector2)transform.up * currentSpeed * currentBackwardDirection * Time.fixedDeltaTime;
+        }
     }
 
 
